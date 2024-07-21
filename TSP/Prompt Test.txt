@@ -1,0 +1,32 @@
+reset()
+-- Clear the display.
+display.clear()
+-- Prompt the user for a voltage value to source.
+srcVoltage = display.prompt("+000.00", " V", "Enter source voltage", 5, -20, 20)
+-- Prompt the user to enable measurements.
+measEnable = display.menu("Measurements?", "ENABLE DISABLE")
+if measEnable == "ENABLE" then
+-- Prompt the user for the number of measurements.
+numMeas = display.prompt("0000", " Rdgs", "Enter the number of readings", 10,
+0, 9999)
+smua.measure.count = numMeas
+smua.nvbuffer1.clear()
+end
+-- Convert user input to the source level.
+smua.source.levelv = tonumber(srcVoltage)
+smua.source.output = smua.OUTPUT_ON
+if measEnable == "ENABLE" then
+-- Inform the user that measurments are in progress
+display.setcursor(1, 1)
+display.settext("$BPlease wait.$R$NMeasure operation in progress.")
+smua.measure.i(smua.nvbuffer1)
+display.clear()
+-- Inform the user that the Source Measure operation has finished
+display.settext("Operation Finished$NSource-Measure Complete")
+else
+-- Inform the user that the Source operation has finished
+display.settext("Operation Finished$NSource Complete")
+end
+-- Wait 5 seconds then return the the main screen.
+delay(5)
+display.screen = display.SMUA

@@ -1,0 +1,73 @@
+display.clear()
+display.settext("Var1 = "..Var1.."$N Var2 = "..string.format("%.2e", Var2))
+
+if not (Var1 and Var2 and Var3) then
+    print('Specify/Input parameters!')
+    return
+end
+
+statistics = smuX.buffer.getstats(smuX.nvbufferN)
+statistics.max.reading
+
+display.clear()
+display.setcursor(1,9)
+display.settext("PASS")
+
+loadandrunscript, endscript
+
+while expression do
+	block
+end
+
+repeat
+	block
+until expression
+
+measurerange = smua.nvbuffer1.measureranges[1]
+printbuffer(1, 10, smua.nvbuffer1.measureranges)
+
+smua.nvbuffer1.sourcefunctions
+
+step = (stop - start) / (points - 1)
+
+delay(seconds)
+
+beeper.beep(duration, Freq)
+
+display.locallockout to display.LOCK.
+
+exit()
+
+
+testFile, testError = io.open("testfile.txt", "w")
+if nil == testError then
+testFile:write("This is my test file")
+io.close(testFile)
+io.flush()
+end
+
+format.asciiprecision = 10
+
+testData.relativetimestamps
+
+os.time(timespec)
+
+
+smuX.abort()
+
+
+smua.measure.autozero = smua.AUTOZERO_ONCE
+
+smua.measure.delay = 0.010
+
+smua.source.output = smua.OUTPUT_ON
+smua.source.levelv = 1
+smua.source.limiti = 0.002
+
+smua.source.delay
+smua.measure.delay
+
+
+smua.trigger.endsweep.action		= smua.SOURCE_IDLE
+
+delay(1seconds)
